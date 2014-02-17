@@ -92,6 +92,12 @@
     </Compile>
     <Compile Include="Classes\InterceptKeys.cs" />
     <Compile Include="Classes\Irc.cs" />
+    <Compile Include="Properties\KeyboardSettings.cs" />
+    <Compile Include="Properties\KeyboardSettings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>KeyboardSettings.settings</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings.cs" />
@@ -113,6 +119,10 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Properties\KeyboardSettings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>KeyboardSettings.Designer.cs</LastGenOutput>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Twitchmote.Classes.KeyboardSetting.datasource" />
     <None Include="Properties\Settings.settings">

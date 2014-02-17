@@ -15,11 +15,14 @@ namespace Twitchmote.Classes
         {
             get
             {
-                return Key.ToString();
+                if(Key == new VirtualKeyCode())
+                    return Key.ToString();
+                else
+                    return Key.ToString()[3].ToString();
             }
             set
             {
-                Key = ParseKey(DisplayKey);
+                Key = ParseKey(value);
             }
         }
 
