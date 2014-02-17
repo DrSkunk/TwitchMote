@@ -243,5 +243,11 @@ namespace Twitchmote
             interceptKeys.Stop();
         }
 
+        private void buttonConfigKeyboard_Click(object sender, EventArgs e)
+        {
+            FormConfigKeyboard formConfigKeyboard = new FormConfigKeyboard();
+            formConfigKeyboard.ShowDialog();
+        }
+
     }
 }

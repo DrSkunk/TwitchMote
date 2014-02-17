@@ -168,6 +168,7 @@
             this.buttonConfigKeyboard.TabIndex = 13;
             this.buttonConfigKeyboard.Text = "Configure keyboard";
             this.buttonConfigKeyboard.UseVisualStyleBackColor = true;
+            this.buttonConfigKeyboard.Click += new System.EventHandler(this.buttonConfigKeyboard_Click);
             // 
             // FormMain
             // 
