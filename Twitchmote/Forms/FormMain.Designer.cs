@@ -42,11 +42,12 @@
             this.textBoxUser = new System.Windows.Forms.TextBox();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.buttonQuit = new System.Windows.Forms.Button();
+            this.buttonConfigKeyboard = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonStart
             // 
-            this.buttonStart.Location = new System.Drawing.Point(242, 28);
+            this.buttonStart.Location = new System.Drawing.Point(344, 6);
             this.buttonStart.Name = "buttonStart";
             this.buttonStart.Size = new System.Drawing.Size(75, 23);
             this.buttonStart.TabIndex = 0;
@@ -56,11 +57,11 @@
             // 
             // consoleTB
             // 
-            this.consoleTB.Location = new System.Drawing.Point(12, 109);
+            this.consoleTB.Location = new System.Drawing.Point(344, 35);
             this.consoleTB.Multiline = true;
             this.consoleTB.Name = "consoleTB";
             this.consoleTB.ReadOnly = true;
-            this.consoleTB.Size = new System.Drawing.Size(305, 201);
+            this.consoleTB.Size = new System.Drawing.Size(305, 275);
             this.consoleTB.TabIndex = 1;
             // 
             // textBoxGame
@@ -98,7 +99,7 @@
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(242, 2);
+            this.buttonSave.Location = new System.Drawing.Point(161, 287);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(75, 23);
             this.buttonSave.TabIndex = 6;
@@ -108,7 +109,7 @@
             // 
             // buttonClear
             // 
-            this.buttonClear.Location = new System.Drawing.Point(242, 54);
+            this.buttonClear.Location = new System.Drawing.Point(459, 6);
             this.buttonClear.Name = "buttonClear";
             this.buttonClear.Size = new System.Drawing.Size(75, 23);
             this.buttonClear.TabIndex = 7;
@@ -151,7 +152,7 @@
             // 
             // buttonQuit
             // 
-            this.buttonQuit.Location = new System.Drawing.Point(242, 80);
+            this.buttonQuit.Location = new System.Drawing.Point(574, 6);
             this.buttonQuit.Name = "buttonQuit";
             this.buttonQuit.Size = new System.Drawing.Size(75, 23);
             this.buttonQuit.TabIndex = 12;
@@ -159,11 +160,21 @@
             this.buttonQuit.UseVisualStyleBackColor = true;
             this.buttonQuit.Click += new System.EventHandler(this.buttonQuit_Click);
             // 
+            // buttonConfigKeyboard
+            // 
+            this.buttonConfigKeyboard.Location = new System.Drawing.Point(15, 287);
+            this.buttonConfigKeyboard.Name = "buttonConfigKeyboard";
+            this.buttonConfigKeyboard.Size = new System.Drawing.Size(121, 23);
+            this.buttonConfigKeyboard.TabIndex = 13;
+            this.buttonConfigKeyboard.Text = "Configure keyboard";
+            this.buttonConfigKeyboard.UseVisualStyleBackColor = true;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(327, 322);
+            this.ClientSize = new System.Drawing.Size(661, 322);
+            this.Controls.Add(this.buttonConfigKeyboard);
             this.Controls.Add(this.buttonQuit);
             this.Controls.Add(this.textBoxPassword);
             this.Controls.Add(this.textBoxUser);
@@ -203,6 +214,7 @@
         private System.Windows.Forms.TextBox textBoxUser;
         private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.Button buttonQuit;
+        private System.Windows.Forms.Button buttonConfigKeyboard;
     }
 }
 

@@ -56,26 +56,33 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormCommands.cs">
+    <Compile Include="Forms\FormCommands.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormCommands.Designer.cs">
+    <Compile Include="Forms\FormCommands.Designer.cs">
       <DependentUpon>FormCommands.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormMain.cs">
+    <Compile Include="Forms\FormConfigKeyboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormMain.Designer.cs">
+    <Compile Include="Forms\FormConfigKeyboard.Designer.cs">
+      <DependentUpon>FormConfigKeyboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="InterceptKeys.cs" />
-    <Compile Include="Irc.cs" />
+    <Compile Include="Classes\InterceptKeys.cs" />
+    <Compile Include="Classes\Irc.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormCommands.resx">
+    <Compile Include="Settings.cs" />
+    <EmbeddedResource Include="Forms\FormCommands.resx">
       <DependentUpon>FormCommands.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormMain.resx">
+    <EmbeddedResource Include="Forms\FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
