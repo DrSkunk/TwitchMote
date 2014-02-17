@@ -56,6 +56,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\KeyboardSetting.cs" />
     <Compile Include="Forms\FormCommands.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,6 +83,9 @@
     <EmbeddedResource Include="Forms\FormCommands.resx">
       <DependentUpon>FormCommands.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormConfigKeyboard.resx">
+      <DependentUpon>FormConfigKeyboard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -95,6 +99,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Twitchmote.Properties.Settings.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

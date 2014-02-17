@@ -4,7 +4,7 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Threading;
 
-namespace Twitchmote
+namespace Twitchmote.Classes
 {
     class InterceptKeys
     {
