@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCommands));
             this.labelTitle = new System.Windows.Forms.Label();
             this.labelCommands = new System.Windows.Forms.Label();
             this.labelGame = new System.Windows.Forms.Label();
@@ -118,6 +119,7 @@
             this.Controls.Add(this.labelTitle);
             this.ForeColor = System.Drawing.Color.Snow;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormCommands";
             this.ShowIcon = false;
             this.Text = "Twitchremote Commands";

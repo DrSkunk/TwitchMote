@@ -29,16 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormConfigKeyboard));
             this.dataGridViewKeyboard = new System.Windows.Forms.DataGridView();
-            this.commandDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.keyboardSettingBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.menuStripKeyboard = new System.Windows.Forms.MenuStrip();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.commandDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.keyboardSettingBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewKeyboard)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.keyboardSettingBindingSource)).BeginInit();
             this.menuStripKeyboard.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.keyboardSettingBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridViewKeyboard
@@ -56,25 +57,6 @@
             this.dataGridViewKeyboard.Name = "dataGridViewKeyboard";
             this.dataGridViewKeyboard.Size = new System.Drawing.Size(284, 237);
             this.dataGridViewKeyboard.TabIndex = 1;
-            // 
-            // commandDataGridViewTextBoxColumn
-            // 
-            this.commandDataGridViewTextBoxColumn.DataPropertyName = "Command";
-            this.commandDataGridViewTextBoxColumn.HeaderText = "Command";
-            this.commandDataGridViewTextBoxColumn.Name = "commandDataGridViewTextBoxColumn";
-            this.commandDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.commandDataGridViewTextBoxColumn.Width = 79;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "DisplayKey";
-            this.dataGridViewTextBoxColumn1.HeaderText = "DisplayKey";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Width = 84;
-            // 
-            // keyboardSettingBindingSource
-            // 
-            this.keyboardSettingBindingSource.DataSource = typeof(Twitchmote.Classes.KeyboardSetting);
             // 
             // menuStripKeyboard
             // 
@@ -101,6 +83,25 @@
             this.closeToolStripMenuItem.Text = "&Close";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             // 
+            // commandDataGridViewTextBoxColumn
+            // 
+            this.commandDataGridViewTextBoxColumn.DataPropertyName = "Command";
+            this.commandDataGridViewTextBoxColumn.HeaderText = "Command";
+            this.commandDataGridViewTextBoxColumn.Name = "commandDataGridViewTextBoxColumn";
+            this.commandDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.commandDataGridViewTextBoxColumn.Width = 79;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "DisplayKey";
+            this.dataGridViewTextBoxColumn1.HeaderText = "DisplayKey";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Width = 84;
+            // 
+            // keyboardSettingBindingSource
+            // 
+            this.keyboardSettingBindingSource.DataSource = typeof(Twitchmote.Classes.KeyboardSetting);
+            // 
             // FormConfigKeyboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -109,14 +110,15 @@
             this.Controls.Add(this.dataGridViewKeyboard);
             this.Controls.Add(this.menuStripKeyboard);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStripKeyboard;
             this.Name = "FormConfigKeyboard";
             this.Text = "Keyboard config";
             this.Load += new System.EventHandler(this.FormConfigKeyboard_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewKeyboard)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.keyboardSettingBindingSource)).EndInit();
             this.menuStripKeyboard.ResumeLayout(false);
             this.menuStripKeyboard.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.keyboardSettingBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
