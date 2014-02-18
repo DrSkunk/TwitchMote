@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ChatSharp;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,7 +22,7 @@ namespace Twitchmote
     {
         FormCommands formCommands;
         Boolean started = false;
-        Irc irc;
+        IrcClient client;
         InterceptKeys interceptKeys;
         InputSimulator inputSimulator = new InputSimulator();
         List<KeyboardSetting> keyboardSettings = new List<KeyboardSetting>();
@@ -64,18 +65,31 @@ namespace Twitchmote
 
         private void StopIrc()
         {
-            this.WriteConsole("Irc stopped.");
-            irc.Stop();
+            client.Quit();
+
+            this.WriteConsole("irc service stopped");
             started = false;
             buttonStart.Text = "Start";
         }
 
         private void StartIrc()
         {
+            client = new IrcClient(Properties.Settings.Default.server, new IrcUser(Properties.Settings.Default.user, Properties.Settings.Default.password));
+            client.NetworkError += (s, e) => WriteConsole("Error: " + e.SocketError);
+            
+            client.ChannelMessageRecieved += (s, e) =>
+            {
+                WriteConsole( e.PrivateMessage.User.Nick + ":" + e.PrivateMessage.Message);
+                ParseInput(e.PrivateMessage.Message);
+            };
+            client.ConnectionComplete += (s, e) =>
+            {
+                client.Channels.Join(Properties.Settings.Default.room);
+                WriteConsole("Connected");
+            };
+            client.ConnectAsync();
 
-            this.WriteConsole("Irc started.");
-            irc = new Irc(this);
-            irc.Start();
+            this.WriteConsole("Starting irc service");
             started = true;
             buttonStart.Text = "Stop";
         }
@@ -130,21 +144,19 @@ namespace Twitchmote
             WriteConsole("Keybinds loaded.");
         }
 
-        private void AddCommandToList(string text)
+        private void AddCommandToList(string command)
         {
             if (this.consoleTB.InvokeRequired)
             {
                 ParseInputCallback d = new ParseInputCallback(AddCommandToList);
-                this.Invoke(d, new object[] { text });
+                this.Invoke(d, new object[] { command });
             }
             else
             {
-                string command = text.Split(':')[1];
-
                 VirtualKeyCode keyCode = new VirtualKeyCode();
                 foreach (KeyboardSetting keyboardSetting in keyboardSettings)
                 {
-                    if (command == keyboardSetting.Command.ToLower())
+                    if (command.ToLower() == keyboardSetting.Command.ToLower())
                     {
                         keyCode = keyboardSetting.Key;
                         break;
@@ -153,7 +165,7 @@ namespace Twitchmote
 
                 if (keyCode != new VirtualKeyCode())
                 {
-                    formCommands.AddCommandToList(text);
+                    formCommands.AddCommandToList(command);
                     inputSimulator.Keyboard.KeyDown(keyCode);
                     System.Threading.Thread.Sleep(wait);
                     inputSimulator.Keyboard.KeyUp(keyCode);

@@ -121,7 +121,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormCommands";
-            this.ShowIcon = false;
             this.Text = "Twitchremote Commands";
             this.Load += new System.EventHandler(this.FormCommands_Load);
             this.ResumeLayout(false);
