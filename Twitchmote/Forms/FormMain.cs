@@ -121,11 +121,6 @@ namespace Twitchmote
             }
             else
             {
-                //if (emulatorHandle == IntPtr.Zero)
-                //{
-                //    MessageBox.Show("Emulator is not running.");
-                //    return;
-                //}
                 formCommands.AddCommandToList(text);
                 string key = text.Split(':')[1];
                 int wait = 100;

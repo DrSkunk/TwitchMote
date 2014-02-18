@@ -34,12 +34,18 @@ namespace Twitchmote.Classes
             this.Key = key;
         }
 
+        public KeyboardSetting(string command, string displayKey)
+        {
+            this.Command = command;
+            this.DisplayKey = displayKey;
+        }
+
         private VirtualKeyCode ParseKey(string key)
         {
             switch (key.ToLower())
             {
                 default:
-                    return VirtualKeyCode.VK_A;
+                    return new VirtualKeyCode();
                 case "a":
                     return VirtualKeyCode.VK_A;
                 case "b":
