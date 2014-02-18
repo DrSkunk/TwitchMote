@@ -44,7 +44,7 @@
             this.labelTitle.Font = new System.Drawing.Font("Pokemon Pixel Font", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTitle.Location = new System.Drawing.Point(18, 9);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(254, 27);
+            this.labelTitle.Size = new System.Drawing.Size(299, 27);
             this.labelTitle.TabIndex = 0;
             this.labelTitle.Text = "Twitchmote";
             this.labelTitle.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -53,7 +53,7 @@
             // 
             this.labelCommands.AutoSize = true;
             this.labelCommands.Font = new System.Drawing.Font("Pokemon Pixel Font", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCommands.Location = new System.Drawing.Point(12, 69);
+            this.labelCommands.Location = new System.Drawing.Point(45, 69);
             this.labelCommands.Name = "labelCommands";
             this.labelCommands.Size = new System.Drawing.Size(72, 180);
             this.labelCommands.TabIndex = 1;
@@ -64,7 +64,7 @@
             this.labelGame.Font = new System.Drawing.Font("Pokemon Pixel Font", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelGame.Location = new System.Drawing.Point(15, 41);
             this.labelGame.Name = "labelGame";
-            this.labelGame.Size = new System.Drawing.Size(257, 18);
+            this.labelGame.Size = new System.Drawing.Size(302, 18);
             this.labelGame.TabIndex = 2;
             this.labelGame.Text = "label1";
             this.labelGame.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -79,7 +79,7 @@
             // 
             this.labelTimer.AutoSize = true;
             this.labelTimer.Font = new System.Drawing.Font("Pokemon Pixel Font", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTimer.Location = new System.Drawing.Point(193, 266);
+            this.labelTimer.Location = new System.Drawing.Point(224, 266);
             this.labelTimer.Name = "labelTimer";
             this.labelTimer.Size = new System.Drawing.Size(62, 18);
             this.labelTimer.TabIndex = 3;
@@ -110,7 +110,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlText;
-            this.ClientSize = new System.Drawing.Size(284, 293);
+            this.ClientSize = new System.Drawing.Size(329, 293);
             this.Controls.Add(this.labelServerTime);
             this.Controls.Add(this.labelServerTimeTag);
             this.Controls.Add(this.labelTimer);
