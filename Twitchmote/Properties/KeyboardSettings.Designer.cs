@@ -25,7 +25,7 @@ namespace Twitchmote.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("R")]
+        [global::System.Configuration.DefaultSettingValueAttribute("A")]
         public string A {
             get {
                 return ((string)(this["A"]));
@@ -37,13 +37,13 @@ namespace Twitchmote.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("F")]
-        public string B {
+        [global::System.Configuration.DefaultSettingValueAttribute("X")]
+        public string C {
             get {
-                return ((string)(this["B"]));
+                return ((string)(this["C"]));
             }
             set {
-                this["B"] = value;
+                this["C"] = value;
             }
         }
     }

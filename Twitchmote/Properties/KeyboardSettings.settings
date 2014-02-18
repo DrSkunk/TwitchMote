@@ -3,10 +3,10 @@
   <Profiles />
   <Settings>
     <Setting Name="A" Type="System.String" Scope="User">
-      <Value Profile="(Default)">R</Value>
+      <Value Profile="(Default)">A</Value>
     </Setting>
-    <Setting Name="B" Type="System.String" Scope="User">
-      <Value Profile="(Default)">F</Value>
+    <Setting Name="C" Type="System.String" Scope="User">
+      <Value Profile="(Default)">X</Value>
     </Setting>
   </Settings>
 </SettingsFile>
