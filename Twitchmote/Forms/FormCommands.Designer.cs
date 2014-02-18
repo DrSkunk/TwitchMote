@@ -40,33 +40,33 @@
             // 
             // labelTitle
             // 
-            this.labelTitle.AutoSize = true;
-            this.labelTitle.Font = new System.Drawing.Font("Pokemon Pixel Font", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTitle.Location = new System.Drawing.Point(12, 9);
+            this.labelTitle.Font = new System.Drawing.Font("Pokemon Pixel Font", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTitle.Location = new System.Drawing.Point(18, 9);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(82, 18);
+            this.labelTitle.Size = new System.Drawing.Size(254, 27);
             this.labelTitle.TabIndex = 0;
             this.labelTitle.Text = "Twitchmote";
+            this.labelTitle.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // labelCommands
             // 
             this.labelCommands.AutoSize = true;
             this.labelCommands.Font = new System.Drawing.Font("Pokemon Pixel Font", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCommands.Location = new System.Drawing.Point(12, 45);
+            this.labelCommands.Location = new System.Drawing.Point(12, 69);
             this.labelCommands.Name = "labelCommands";
-            this.labelCommands.Size = new System.Drawing.Size(72, 18);
+            this.labelCommands.Size = new System.Drawing.Size(72, 180);
             this.labelCommands.TabIndex = 1;
-            this.labelCommands.Text = "commands";
+            this.labelCommands.Text = "commands\r\n2\r\n3\r\n4\r\n5\r\n6\r\n7\r\n8\r\n9\r\n10";
             // 
             // labelGame
             // 
-            this.labelGame.AutoSize = true;
             this.labelGame.Font = new System.Drawing.Font("Pokemon Pixel Font", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelGame.Location = new System.Drawing.Point(100, 9);
+            this.labelGame.Location = new System.Drawing.Point(15, 41);
             this.labelGame.Name = "labelGame";
-            this.labelGame.Size = new System.Drawing.Size(45, 18);
+            this.labelGame.Size = new System.Drawing.Size(257, 18);
             this.labelGame.TabIndex = 2;
             this.labelGame.Text = "label1";
+            this.labelGame.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // timer
             // 
@@ -78,7 +78,7 @@
             // 
             this.labelTimer.AutoSize = true;
             this.labelTimer.Font = new System.Drawing.Font("Pokemon Pixel Font", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTimer.Location = new System.Drawing.Point(12, 27);
+            this.labelTimer.Location = new System.Drawing.Point(193, 266);
             this.labelTimer.Name = "labelTimer";
             this.labelTimer.Size = new System.Drawing.Size(62, 18);
             this.labelTimer.TabIndex = 3;
@@ -88,7 +88,7 @@
             // 
             this.labelServerTimeTag.AutoSize = true;
             this.labelServerTimeTag.Font = new System.Drawing.Font("Pokemon Pixel Font", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelServerTimeTag.Location = new System.Drawing.Point(12, 234);
+            this.labelServerTimeTag.Location = new System.Drawing.Point(12, 266);
             this.labelServerTimeTag.Name = "labelServerTimeTag";
             this.labelServerTimeTag.Size = new System.Drawing.Size(93, 18);
             this.labelServerTimeTag.TabIndex = 4;
@@ -98,7 +98,7 @@
             // 
             this.labelServerTime.AutoSize = true;
             this.labelServerTime.Font = new System.Drawing.Font("Pokemon Pixel Font", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelServerTime.Location = new System.Drawing.Point(111, 234);
+            this.labelServerTime.Location = new System.Drawing.Point(111, 266);
             this.labelServerTime.Name = "labelServerTime";
             this.labelServerTime.Size = new System.Drawing.Size(64, 18);
             this.labelServerTime.TabIndex = 5;
@@ -109,7 +109,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlText;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(284, 293);
             this.Controls.Add(this.labelServerTime);
             this.Controls.Add(this.labelServerTimeTag);
             this.Controls.Add(this.labelTimer);
