@@ -54,7 +54,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Sharkbite.Thresher">
-      <HintPath>..\..\thresher\bin\Sharkbite.Thresher.dll</HintPath>
+      <HintPath>..\..\TwitchMote assets\thresher\bin\Sharkbite.Thresher.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />

@@ -24,6 +24,7 @@ namespace Twitchmote
         Irc irc;
         InterceptKeys interceptKeys;
         InputSimulator inputSimulator = new InputSimulator();
+        List<KeyboardSetting> keyboardSettings = new List<KeyboardSetting>();
 
         public FormMain()
         {
@@ -50,6 +51,7 @@ namespace Twitchmote
 
             interceptKeys = new InterceptKeys(this);
             interceptKeys.Start();
+            ReloadKeybinds();
         }
 
         private void buttonStart_Click(object sender, EventArgs e)
@@ -115,6 +117,16 @@ namespace Twitchmote
 
         delegate void ParseInputCallback(string text);
 
+        public void ReloadKeybinds()
+        {
+            foreach (string key in ConfigurationManager.AppSettings)
+            {
+                string value = ConfigurationManager.AppSettings[key];
+                keyboardSettings.Add(new KeyboardSetting(key, value));
+            }
+            WriteConsole("Keybinds loaded.");
+        }
+
         private void AddCommandToList(string text)
         {
             if (this.consoleTB.InvokeRequired)
@@ -125,15 +137,8 @@ namespace Twitchmote
             else
             {
                 formCommands.AddCommandToList(text);
-                string command = text.Split(':')[1];
+                string command = text.Split(':')[1].ToLower();
                 int wait = 100;
-
-                List<KeyboardSetting> keyboardSettings = new List<KeyboardSetting>();
-                foreach (string key in ConfigurationManager.AppSettings)
-                {
-                    string value = ConfigurationManager.AppSettings[key];
-                    keyboardSettings.Add(new KeyboardSetting(key, value));
-                }
 
                 VirtualKeyCode keyCode = new VirtualKeyCode();
                 foreach (KeyboardSetting keyboardSetting in keyboardSettings)
@@ -147,58 +152,6 @@ namespace Twitchmote
                     System.Threading.Thread.Sleep(wait);
                     inputSimulator.Keyboard.KeyUp(keyCode);
                 }
-
-                //switch (command)
-                //{
-                //    case "a":
-                //        inputSimulator.Keyboard.KeyDown(VirtualKeyCode.VK_R);
-                //        System.Threading.Thread.Sleep(wait);
-                //        inputSimulator.Keyboard.KeyUp(VirtualKeyCode.VK_R);
-                //        //SendKeys.SendWait("a");
-                //        break;
-                //    case "b":
-                //        inputSimulator.Keyboard.KeyDown(VirtualKeyCode.VK_F);
-                //        System.Threading.Thread.Sleep(wait);
-                //        inputSimulator.Keyboard.KeyUp(VirtualKeyCode.VK_F);
-                //        //SendKeys.SendWait("b");
-                //        break;
-                //    case "up":
-                //        inputSimulator.Keyboard.KeyDown(VirtualKeyCode.VK_Y);
-                //        System.Threading.Thread.Sleep(wait);
-                //        inputSimulator.Keyboard.KeyUp(VirtualKeyCode.VK_Y);
-                //        //SendKeys.SendWait("o");
-                //        break;
-                //    case "down":
-                //        inputSimulator.Keyboard.KeyDown(VirtualKeyCode.VK_H);
-                //        System.Threading.Thread.Sleep(wait);
-                //        inputSimulator.Keyboard.KeyUp(VirtualKeyCode.VK_H);
-                //        //SendKeys.SendWait("l");
-                //        break;
-                //    case "left":
-                //        inputSimulator.Keyboard.KeyDown(VirtualKeyCode.VK_G);
-                //        System.Threading.Thread.Sleep(wait);
-                //        inputSimulator.Keyboard.KeyUp(VirtualKeyCode.VK_G);
-                //        //SendKeys.SendWait("k");
-                //        break;
-                //    case "right":
-                //        inputSimulator.Keyboard.KeyDown(VirtualKeyCode.VK_C);
-                //        System.Threading.Thread.Sleep(wait);
-                //        inputSimulator.Keyboard.KeyUp(VirtualKeyCode.VK_C);
-                //        //SendKeys.SendWait("m");
-                //        break;
-                //    case "start":
-                //        inputSimulator.Keyboard.KeyDown(VirtualKeyCode.VK_B);
-                //        System.Threading.Thread.Sleep(wait);
-                //        inputSimulator.Keyboard.KeyUp(VirtualKeyCode.VK_B);
-                //        //SendKeys.SendWait("i");
-                //        break;
-                //    case "select":
-                //        inputSimulator.Keyboard.KeyDown(VirtualKeyCode.VK_V);
-                //        System.Threading.Thread.Sleep(wait);
-                //        inputSimulator.Keyboard.KeyUp(VirtualKeyCode.VK_V);
-                //        //SendKeys.SendWait("p");
-                //        break;
-                //}
             }
         }
 
@@ -266,6 +219,7 @@ namespace Twitchmote
         {
             FormConfigKeyboard formConfigKeyboard = new FormConfigKeyboard();
             formConfigKeyboard.ShowDialog(this);
+            ReloadKeybinds();
         }
 
     }
