@@ -7,6 +7,7 @@ using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Sockets;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
@@ -65,7 +66,11 @@ namespace Twitchmote
 
         private void StopIrc()
         {
-            client.Quit();
+            try
+            {
+                client.Quit();
+            }
+            catch (Exception e) { }
 
             this.WriteConsole("irc service stopped");
             started = false;
@@ -227,6 +232,7 @@ namespace Twitchmote
         private void buttonQuit_Click(object sender, EventArgs e)
         {
             interceptKeys.Stop();
+            StopIrc();
         }
 
         private void FormMain_FormClosing(object sender, FormClosingEventArgs e)
