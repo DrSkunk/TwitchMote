@@ -12,7 +12,7 @@
       <Value Profile="(Default)">TwitchPlaysAGame</Value>
     </Setting>
     <Setting Name="password" Type="System.String" Scope="User">
-      <Value Profile="(Default)">oauth:j14ejwma0x9zbmum5tngjtxraxjw9ud</Value>
+      <Value Profile="(Default)"></Value>
     </Setting>
     <Setting Name="server" Type="System.String" Scope="User">
       <Value Profile="(Default)">199.9.252.26</Value>
