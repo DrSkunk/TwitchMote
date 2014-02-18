@@ -82,12 +82,12 @@ namespace Twitchmote.Classes
         private void CreateConnection()
         {
             //The hostname of the IRC server
-            string server = Properties.Settings.Default["server"].ToString().ToLower();
+            string server = Properties.Settings.Default.server.ToLower();
 
             //The bot's nick on IRC
-            string nick = Properties.Settings.Default["user"].ToString();
+            string nick = Properties.Settings.Default.user
 
-            string password = Properties.Settings.Default["password"].ToString();
+            string password = Properties.Settings.Default.password;
             //Fire up the Ident server for those IRC networks
             //silly enough to use it.
             Identd.Start(nick);
@@ -166,7 +166,7 @@ namespace Twitchmote.Classes
                 //one will do for now.
                 //All commands are sent to IRC using the Sender object
                 //from the Connection.
-                string room = Properties.Settings.Default["room"].ToString().ToLower();
+                string room = Properties.Settings.Default.room.ToLower();
                 connection.Sender.Join(room);
             }
             catch (Exception e)
@@ -180,9 +180,7 @@ namespace Twitchmote.Classes
             //Echo back any public messages
             //connection.Sender.PublicMessage(channel, user.Nick + " said, " + message);
             _parent.WriteConsole(user.Nick + ":" + message);
-            string m = message.ToLower();
-            if (m == "a" || m == "b" || m == "up" || m == "down" || m == "left" || m == "right" || m == "start" || m == "select")
-                _parent.ParseInput(user.Nick + ":" + m);
+            _parent.ParseInput(user.Nick + ":" + message.ToLower());
         }
 
         public void OnPrivate(UserInfo user, string message)

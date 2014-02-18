@@ -25,6 +25,7 @@ namespace Twitchmote
         InterceptKeys interceptKeys;
         InputSimulator inputSimulator = new InputSimulator();
         List<KeyboardSetting> keyboardSettings = new List<KeyboardSetting>();
+        int wait = 100;
 
         public FormMain()
         {
@@ -38,16 +39,18 @@ namespace Twitchmote
 
             this.WriteConsole("F10: globale Start/Stop");
 
-            string game = Properties.Settings.Default["game"].ToString();
-            string server = Properties.Settings.Default["server"].ToString();
-            string room = Properties.Settings.Default["room"].ToString();
-            string user = Properties.Settings.Default["user"].ToString();
-            string password = Properties.Settings.Default["password"].ToString();
+            string game = Properties.Settings.Default.game;
+            string server = Properties.Settings.Default.server;
+            string room = Properties.Settings.Default.room;
+            string user = Properties.Settings.Default.user;
+            string password = Properties.Settings.Default.password;
+            wait = Properties.Settings.Default.keyWait;
             textBoxGame.Text = game;
             textBoxServer.Text = server;
             textBoxRoom.Text = room;
             textBoxUser.Text = user;
             textBoxPassword.Text = password;
+            numericUpDownKeyWait.Value = wait;
 
             interceptKeys = new InterceptKeys(this);
             interceptKeys.Start();
@@ -136,18 +139,21 @@ namespace Twitchmote
             }
             else
             {
-                formCommands.AddCommandToList(text);
-                string command = text.Split(':')[1].ToLower();
-                int wait = 100;
+                string command = text.Split(':')[1];
 
                 VirtualKeyCode keyCode = new VirtualKeyCode();
                 foreach (KeyboardSetting keyboardSetting in keyboardSettings)
                 {
-                    keyCode = KeyboardSetting.ParseKey(command);
+                    if (command == keyboardSetting.Command.ToLower())
+                    {
+                        keyCode = keyboardSetting.Key;
+                        break;
+                    }
                 }
 
                 if (keyCode != new VirtualKeyCode())
                 {
+                    formCommands.AddCommandToList(text);
                     inputSimulator.Keyboard.KeyDown(keyCode);
                     System.Threading.Thread.Sleep(wait);
                     inputSimulator.Keyboard.KeyUp(keyCode);
@@ -191,11 +197,12 @@ namespace Twitchmote
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            Properties.Settings.Default["game"] = textBoxGame.Text;
-            Properties.Settings.Default["server"] = textBoxServer.Text;
-            Properties.Settings.Default["room"] = textBoxRoom.Text;
-            Properties.Settings.Default["user"] = textBoxUser.Text;
-            Properties.Settings.Default["password"] = textBoxPassword.Text;
+            Properties.Settings.Default.game = textBoxGame.Text;
+            Properties.Settings.Default.server = textBoxServer.Text;
+            Properties.Settings.Default.room = textBoxRoom.Text;
+            Properties.Settings.Default.user = textBoxUser.Text;
+            Properties.Settings.Default.password = textBoxPassword.Text;
+            Properties.Settings.Default.keyWait= Convert.ToInt32(numericUpDownKeyWait.Value);
             Properties.Settings.Default.Save();
             this.WriteConsole("Settings saved.");
         }

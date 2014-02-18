@@ -61,19 +61,7 @@ namespace Twitchmote.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("oauth:j14ejwma0x9zbmum5tngjtxraxjw9ud")]
-        public string password {
-            get {
-                return ((string)(this["password"]));
-            }
-            set {
-                this["password"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("199.9.252.26")]
+        [global::System.Configuration.DefaultSettingValueAttribute("irc.twitch.tv")]
         public string server {
             get {
                 return ((string)(this["server"]));
@@ -88,10 +76,34 @@ namespace Twitchmote.Properties {
         [global::System.Configuration.DefaultSettingValueAttribute("00:00:00")]
         public global::System.TimeSpan elapsed {
             get {
-                return ((global::System.TimeSpan)(this["chronometer"]));
+                return ((global::System.TimeSpan)(this["elapsed"]));
             }
             set {
-                this["chronometer"] = value;
+                this["elapsed"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string password {
+            get {
+                return ((string)(this["password"]));
+            }
+            set {
+                this["password"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        public int keyWait {
+            get {
+                return ((int)(this["keyWait"]));
+            }
+            set {
+                this["keyWait"] = value;
             }
         }
     }

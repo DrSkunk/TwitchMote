@@ -11,14 +11,17 @@
     <Setting Name="user" Type="System.String" Scope="User">
       <Value Profile="(Default)">TwitchPlaysAGame</Value>
     </Setting>
-    <Setting Name="password" Type="System.String" Scope="User">
-      <Value Profile="(Default)"></Value>
-    </Setting>
     <Setting Name="server" Type="System.String" Scope="User">
-      <Value Profile="(Default)">199.9.252.26</Value>
+      <Value Profile="(Default)">irc.twitch.tv</Value>
     </Setting>
     <Setting Name="elapsed" Type="System.TimeSpan" Scope="User">
-      <Value Profile="(Default)">23:59:55</Value>
+      <Value Profile="(Default)">00:00:00</Value>
+    </Setting>
+    <Setting Name="password" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="keyWait" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">100</Value>
     </Setting>
   </Settings>
 </SettingsFile>

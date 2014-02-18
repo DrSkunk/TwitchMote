@@ -9,7 +9,7 @@ namespace Twitchmote.Classes
 {
     class KeyboardSetting
     {
-        public string Command { get; set; }
+        public string Command { get ; set; }
         public VirtualKeyCode Key { get; set; }
         public string DisplayKey
         {

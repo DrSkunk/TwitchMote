@@ -45,6 +45,9 @@
             this.buttonConfigKeyboard = new System.Windows.Forms.Button();
             this.textBoxServer = new System.Windows.Forms.TextBox();
             this.labelServer = new System.Windows.Forms.Label();
+            this.numericUpDownKeyWait = new System.Windows.Forms.NumericUpDown();
+            this.labelKeyWait = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownKeyWait)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonStart
@@ -68,7 +71,7 @@
             // 
             // textBoxGame
             // 
-            this.textBoxGame.Location = new System.Drawing.Point(74, 3);
+            this.textBoxGame.Location = new System.Drawing.Point(90, 3);
             this.textBoxGame.Name = "textBoxGame";
             this.textBoxGame.Size = new System.Drawing.Size(162, 20);
             this.textBoxGame.TabIndex = 2;
@@ -77,7 +80,7 @@
             // labelGame
             // 
             this.labelGame.AutoSize = true;
-            this.labelGame.Location = new System.Drawing.Point(30, 6);
+            this.labelGame.Location = new System.Drawing.Point(46, 6);
             this.labelGame.Name = "labelGame";
             this.labelGame.Size = new System.Drawing.Size(41, 13);
             this.labelGame.TabIndex = 3;
@@ -86,7 +89,7 @@
             // labelRoom
             // 
             this.labelRoom.AutoSize = true;
-            this.labelRoom.Location = new System.Drawing.Point(30, 58);
+            this.labelRoom.Location = new System.Drawing.Point(46, 58);
             this.labelRoom.Name = "labelRoom";
             this.labelRoom.Size = new System.Drawing.Size(38, 13);
             this.labelRoom.TabIndex = 4;
@@ -94,7 +97,7 @@
             // 
             // textBoxRoom
             // 
-            this.textBoxRoom.Location = new System.Drawing.Point(74, 55);
+            this.textBoxRoom.Location = new System.Drawing.Point(90, 55);
             this.textBoxRoom.Name = "textBoxRoom";
             this.textBoxRoom.Size = new System.Drawing.Size(162, 20);
             this.textBoxRoom.TabIndex = 5;
@@ -122,7 +125,7 @@
             // labelUser
             // 
             this.labelUser.AutoSize = true;
-            this.labelUser.Location = new System.Drawing.Point(36, 84);
+            this.labelUser.Location = new System.Drawing.Point(52, 84);
             this.labelUser.Name = "labelUser";
             this.labelUser.Size = new System.Drawing.Size(32, 13);
             this.labelUser.TabIndex = 8;
@@ -131,7 +134,7 @@
             // labelPassword
             // 
             this.labelPassword.AutoSize = true;
-            this.labelPassword.Location = new System.Drawing.Point(12, 110);
+            this.labelPassword.Location = new System.Drawing.Point(28, 110);
             this.labelPassword.Name = "labelPassword";
             this.labelPassword.Size = new System.Drawing.Size(56, 13);
             this.labelPassword.TabIndex = 9;
@@ -139,14 +142,14 @@
             // 
             // textBoxUser
             // 
-            this.textBoxUser.Location = new System.Drawing.Point(74, 81);
+            this.textBoxUser.Location = new System.Drawing.Point(90, 81);
             this.textBoxUser.Name = "textBoxUser";
             this.textBoxUser.Size = new System.Drawing.Size(162, 20);
             this.textBoxUser.TabIndex = 10;
             // 
             // textBoxPassword
             // 
-            this.textBoxPassword.Location = new System.Drawing.Point(74, 107);
+            this.textBoxPassword.Location = new System.Drawing.Point(90, 107);
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.PasswordChar = '*';
             this.textBoxPassword.Size = new System.Drawing.Size(162, 20);
@@ -174,7 +177,7 @@
             // 
             // textBoxServer
             // 
-            this.textBoxServer.Location = new System.Drawing.Point(74, 29);
+            this.textBoxServer.Location = new System.Drawing.Point(90, 29);
             this.textBoxServer.Name = "textBoxServer";
             this.textBoxServer.Size = new System.Drawing.Size(162, 20);
             this.textBoxServer.TabIndex = 15;
@@ -182,17 +185,45 @@
             // labelServer
             // 
             this.labelServer.AutoSize = true;
-            this.labelServer.Location = new System.Drawing.Point(27, 32);
+            this.labelServer.Location = new System.Drawing.Point(43, 32);
             this.labelServer.Name = "labelServer";
             this.labelServer.Size = new System.Drawing.Size(41, 13);
             this.labelServer.TabIndex = 14;
             this.labelServer.Text = "Server:";
+            // 
+            // numericUpDownKeyWait
+            // 
+            this.numericUpDownKeyWait.Location = new System.Drawing.Point(90, 133);
+            this.numericUpDownKeyWait.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.numericUpDownKeyWait.Name = "numericUpDownKeyWait";
+            this.numericUpDownKeyWait.Size = new System.Drawing.Size(162, 20);
+            this.numericUpDownKeyWait.TabIndex = 16;
+            this.numericUpDownKeyWait.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            // 
+            // labelKeyWait
+            // 
+            this.labelKeyWait.AutoSize = true;
+            this.labelKeyWait.Location = new System.Drawing.Point(12, 135);
+            this.labelKeyWait.Name = "labelKeyWait";
+            this.labelKeyWait.Size = new System.Drawing.Size(72, 13);
+            this.labelKeyWait.TabIndex = 17;
+            this.labelKeyWait.Text = "Key wait (ms):";
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(661, 322);
+            this.Controls.Add(this.labelKeyWait);
+            this.Controls.Add(this.numericUpDownKeyWait);
             this.Controls.Add(this.textBoxServer);
             this.Controls.Add(this.labelServer);
             this.Controls.Add(this.buttonConfigKeyboard);
@@ -215,6 +246,7 @@
             this.Text = "Twitchmote";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMain_FormClosing);
             this.Load += new System.EventHandler(this.FormMain_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownKeyWait)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -238,6 +270,8 @@
         private System.Windows.Forms.Button buttonConfigKeyboard;
         private System.Windows.Forms.TextBox textBoxServer;
         private System.Windows.Forms.Label labelServer;
+        private System.Windows.Forms.NumericUpDown numericUpDownKeyWait;
+        private System.Windows.Forms.Label labelKeyWait;
     }
 }
 
