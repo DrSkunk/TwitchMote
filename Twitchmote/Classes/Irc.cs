@@ -85,7 +85,7 @@ namespace Twitchmote.Classes
             string server = Properties.Settings.Default.server.ToLower();
 
             //The bot's nick on IRC
-            string nick = Properties.Settings.Default.user
+            string nick = Properties.Settings.Default.user;
 
             string password = Properties.Settings.Default.password;
             //Fire up the Ident server for those IRC networks
