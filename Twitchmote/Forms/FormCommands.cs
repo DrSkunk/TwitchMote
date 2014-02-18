@@ -13,10 +13,7 @@ namespace Twitchmote
     public partial class FormCommands : Form
     {
         List<string> commands = new List<string>();
-        int seconds = 0;
-        int minutes = 0;
-        int hours = 0;
-        int days = 0;
+        TimeSpan elapsed = new TimeSpan();
 
         public FormCommands()
         {
@@ -48,6 +45,7 @@ namespace Twitchmote
         {
             labelCommands.Text = string.Empty;
             labelGame.Text = string.Empty;
+            elapsed = (TimeSpan)Properties.Settings.Default["elapsed"];
         }
 
         protected override void WndProc(ref Message m)
@@ -66,25 +64,13 @@ namespace Twitchmote
 
         private void timer_Tick(object sender, EventArgs e)
         {
-            labelTimer.Text = days + "d " + hours + "h " + minutes + "m " + seconds + "s";
+            DateTime currentTime = DateTime.Now;
+            labelServerTime.Text = currentTime.ToLongTimeString();
 
-            seconds++;
-            if (seconds == 60)
-            {
-                seconds = 0;
-                minutes++;
-                if (minutes == 60)
-                {
-                    minutes = 0;
-                    hours++;
-                    if (hours == 24)
-                    {
-                        hours = 0;
-                        days++;
-                    }
-                }
-            }
-
+            labelTimer.Text = elapsed.Days + "d " + elapsed.Hours + "h " + elapsed.Minutes + "m " + elapsed.Seconds + "s";
+            elapsed = elapsed.Add(TimeSpan.FromSeconds(1));
+            if (elapsed.Seconds == 0)
+                Properties.Settings.Default["elapsed"] = elapsed;
         }
     }
 }

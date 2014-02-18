@@ -61,13 +61,37 @@ namespace Twitchmote.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("oauth:j14ejwma0x9zbmum5tngjtxraxjw9ud")]
         public string password {
             get {
                 return ((string)(this["password"]));
             }
             set {
                 this["password"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("199.9.252.26")]
+        public string server {
+            get {
+                return ((string)(this["server"]));
+            }
+            set {
+                this["server"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("00:00:00")]
+        public global::System.TimeSpan elapsed {
+            get {
+                return ((global::System.TimeSpan)(this["chronometer"]));
+            }
+            set {
+                this["chronometer"] = value;
             }
         }
     }

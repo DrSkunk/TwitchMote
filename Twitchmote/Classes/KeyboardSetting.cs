@@ -40,7 +40,7 @@ namespace Twitchmote.Classes
             this.DisplayKey = displayKey;
         }
 
-        private VirtualKeyCode ParseKey(string key)
+        public static VirtualKeyCode ParseKey(string key)
         {
             switch (key.ToLower())
             {

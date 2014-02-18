@@ -34,6 +34,8 @@
             this.labelGame = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.labelTimer = new System.Windows.Forms.Label();
+            this.labelServerTimeTag = new System.Windows.Forms.Label();
+            this.labelServerTime = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelTitle
@@ -82,12 +84,34 @@
             this.labelTimer.TabIndex = 3;
             this.labelTimer.Text = "0d 0h 0m";
             // 
+            // labelServerTimeTag
+            // 
+            this.labelServerTimeTag.AutoSize = true;
+            this.labelServerTimeTag.Font = new System.Drawing.Font("Pokemon Pixel Font", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelServerTimeTag.Location = new System.Drawing.Point(12, 234);
+            this.labelServerTimeTag.Name = "labelServerTimeTag";
+            this.labelServerTimeTag.Size = new System.Drawing.Size(93, 18);
+            this.labelServerTimeTag.TabIndex = 4;
+            this.labelServerTimeTag.Text = "Server time: ";
+            // 
+            // labelServerTime
+            // 
+            this.labelServerTime.AutoSize = true;
+            this.labelServerTime.Font = new System.Drawing.Font("Pokemon Pixel Font", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelServerTime.Location = new System.Drawing.Point(111, 234);
+            this.labelServerTime.Name = "labelServerTime";
+            this.labelServerTime.Size = new System.Drawing.Size(64, 18);
+            this.labelServerTime.TabIndex = 5;
+            this.labelServerTime.Text = "00:00:00";
+            // 
             // FormCommands
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlText;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.labelServerTime);
+            this.Controls.Add(this.labelServerTimeTag);
             this.Controls.Add(this.labelTimer);
             this.Controls.Add(this.labelGame);
             this.Controls.Add(this.labelCommands);
@@ -110,5 +134,7 @@
         private System.Windows.Forms.Label labelGame;
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.Label labelTimer;
+        private System.Windows.Forms.Label labelServerTimeTag;
+        private System.Windows.Forms.Label labelServerTime;
     }
 }

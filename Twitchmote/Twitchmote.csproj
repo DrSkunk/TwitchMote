@@ -118,7 +118,7 @@
     <None Include="Properties\DataSources\Twitchmote.Classes.KeyboardSetting.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+      <LastGenOutput>Settings1.Designer.cs</LastGenOutput>
     </None>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>

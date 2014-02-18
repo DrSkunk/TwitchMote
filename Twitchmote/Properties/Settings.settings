@@ -12,7 +12,13 @@
       <Value Profile="(Default)">TwitchPlaysAGame</Value>
     </Setting>
     <Setting Name="password" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">oauth:j14ejwma0x9zbmum5tngjtxraxjw9ud</Value>
+    </Setting>
+    <Setting Name="server" Type="System.String" Scope="User">
+      <Value Profile="(Default)">199.9.252.26</Value>
+    </Setting>
+    <Setting Name="elapsed" Type="System.TimeSpan" Scope="User">
+      <Value Profile="(Default)">23:59:55</Value>
     </Setting>
   </Settings>
 </SettingsFile>

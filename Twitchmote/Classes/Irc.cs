@@ -82,7 +82,7 @@ namespace Twitchmote.Classes
         private void CreateConnection()
         {
             //The hostname of the IRC server
-            string server = "irc.twitch.tv";
+            string server = Properties.Settings.Default["server"].ToString().ToLower();
 
             //The bot's nick on IRC
             string nick = Properties.Settings.Default["user"].ToString();

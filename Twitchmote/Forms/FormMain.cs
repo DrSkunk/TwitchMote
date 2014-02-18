@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -37,10 +38,12 @@ namespace Twitchmote
             this.WriteConsole("F10: globale Start/Stop");
 
             string game = Properties.Settings.Default["game"].ToString();
+            string server = Properties.Settings.Default["server"].ToString();
             string room = Properties.Settings.Default["room"].ToString();
             string user = Properties.Settings.Default["user"].ToString();
             string password = Properties.Settings.Default["password"].ToString();
             textBoxGame.Text = game;
+            textBoxServer.Text = server;
             textBoxRoom.Text = room;
             textBoxUser.Text = user;
             textBoxPassword.Text = password;
@@ -122,60 +125,80 @@ namespace Twitchmote
             else
             {
                 formCommands.AddCommandToList(text);
-                string key = text.Split(':')[1];
+                string command = text.Split(':')[1];
                 int wait = 100;
-                switch (key)
+
+                List<KeyboardSetting> keyboardSettings = new List<KeyboardSetting>();
+                foreach (string key in ConfigurationManager.AppSettings)
                 {
-                    case "a":
-                        inputSimulator.Keyboard.KeyDown(VirtualKeyCode.VK_R);
-                        System.Threading.Thread.Sleep(wait);
-                        inputSimulator.Keyboard.KeyUp(VirtualKeyCode.VK_R);
-                        //SendKeys.SendWait("a");
-                        break;
-                    case "b":
-                        inputSimulator.Keyboard.KeyDown(VirtualKeyCode.VK_F);
-                        System.Threading.Thread.Sleep(wait);
-                        inputSimulator.Keyboard.KeyUp(VirtualKeyCode.VK_F);
-                        //SendKeys.SendWait("b");
-                        break;
-                    case "up":
-                        inputSimulator.Keyboard.KeyDown(VirtualKeyCode.VK_Y);
-                        System.Threading.Thread.Sleep(wait);
-                        inputSimulator.Keyboard.KeyUp(VirtualKeyCode.VK_Y);
-                        //SendKeys.SendWait("o");
-                        break;
-                    case "down":
-                        inputSimulator.Keyboard.KeyDown(VirtualKeyCode.VK_H);
-                        System.Threading.Thread.Sleep(wait);
-                        inputSimulator.Keyboard.KeyUp(VirtualKeyCode.VK_H);
-                        //SendKeys.SendWait("l");
-                        break;
-                    case "left":
-                        inputSimulator.Keyboard.KeyDown(VirtualKeyCode.VK_G);
-                        System.Threading.Thread.Sleep(wait);
-                        inputSimulator.Keyboard.KeyUp(VirtualKeyCode.VK_G);
-                        //SendKeys.SendWait("k");
-                        break;
-                    case "right":
-                        inputSimulator.Keyboard.KeyDown(VirtualKeyCode.VK_C);
-                        System.Threading.Thread.Sleep(wait);
-                        inputSimulator.Keyboard.KeyUp(VirtualKeyCode.VK_C);
-                        //SendKeys.SendWait("m");
-                        break;
-                    case "start":
-                        inputSimulator.Keyboard.KeyDown(VirtualKeyCode.VK_B);
-                        System.Threading.Thread.Sleep(wait);
-                        inputSimulator.Keyboard.KeyUp(VirtualKeyCode.VK_B);
-                        //SendKeys.SendWait("i");
-                        break;
-                    case "select":
-                        inputSimulator.Keyboard.KeyDown(VirtualKeyCode.VK_V);
-                        System.Threading.Thread.Sleep(wait);
-                        inputSimulator.Keyboard.KeyUp(VirtualKeyCode.VK_V);
-                        //SendKeys.SendWait("p");
-                        break;
+                    string value = ConfigurationManager.AppSettings[key];
+                    keyboardSettings.Add(new KeyboardSetting(key, value));
                 }
-                //SendKeys.Send("{ENTER}");
+
+                VirtualKeyCode keyCode = new VirtualKeyCode();
+                foreach (KeyboardSetting keyboardSetting in keyboardSettings)
+                {
+                    keyCode = KeyboardSetting.ParseKey(command);
+                }
+
+                if (keyCode != new VirtualKeyCode())
+                {
+                    inputSimulator.Keyboard.KeyDown(keyCode);
+                    System.Threading.Thread.Sleep(wait);
+                    inputSimulator.Keyboard.KeyUp(keyCode);
+                }
+
+                //switch (command)
+                //{
+                //    case "a":
+                //        inputSimulator.Keyboard.KeyDown(VirtualKeyCode.VK_R);
+                //        System.Threading.Thread.Sleep(wait);
+                //        inputSimulator.Keyboard.KeyUp(VirtualKeyCode.VK_R);
+                //        //SendKeys.SendWait("a");
+                //        break;
+                //    case "b":
+                //        inputSimulator.Keyboard.KeyDown(VirtualKeyCode.VK_F);
+                //        System.Threading.Thread.Sleep(wait);
+                //        inputSimulator.Keyboard.KeyUp(VirtualKeyCode.VK_F);
+                //        //SendKeys.SendWait("b");
+                //        break;
+                //    case "up":
+                //        inputSimulator.Keyboard.KeyDown(VirtualKeyCode.VK_Y);
+                //        System.Threading.Thread.Sleep(wait);
+                //        inputSimulator.Keyboard.KeyUp(VirtualKeyCode.VK_Y);
+                //        //SendKeys.SendWait("o");
+                //        break;
+                //    case "down":
+                //        inputSimulator.Keyboard.KeyDown(VirtualKeyCode.VK_H);
+                //        System.Threading.Thread.Sleep(wait);
+                //        inputSimulator.Keyboard.KeyUp(VirtualKeyCode.VK_H);
+                //        //SendKeys.SendWait("l");
+                //        break;
+                //    case "left":
+                //        inputSimulator.Keyboard.KeyDown(VirtualKeyCode.VK_G);
+                //        System.Threading.Thread.Sleep(wait);
+                //        inputSimulator.Keyboard.KeyUp(VirtualKeyCode.VK_G);
+                //        //SendKeys.SendWait("k");
+                //        break;
+                //    case "right":
+                //        inputSimulator.Keyboard.KeyDown(VirtualKeyCode.VK_C);
+                //        System.Threading.Thread.Sleep(wait);
+                //        inputSimulator.Keyboard.KeyUp(VirtualKeyCode.VK_C);
+                //        //SendKeys.SendWait("m");
+                //        break;
+                //    case "start":
+                //        inputSimulator.Keyboard.KeyDown(VirtualKeyCode.VK_B);
+                //        System.Threading.Thread.Sleep(wait);
+                //        inputSimulator.Keyboard.KeyUp(VirtualKeyCode.VK_B);
+                //        //SendKeys.SendWait("i");
+                //        break;
+                //    case "select":
+                //        inputSimulator.Keyboard.KeyDown(VirtualKeyCode.VK_V);
+                //        System.Threading.Thread.Sleep(wait);
+                //        inputSimulator.Keyboard.KeyUp(VirtualKeyCode.VK_V);
+                //        //SendKeys.SendWait("p");
+                //        break;
+                //}
             }
         }
 
@@ -216,6 +239,7 @@ namespace Twitchmote
         private void buttonSave_Click(object sender, EventArgs e)
         {
             Properties.Settings.Default["game"] = textBoxGame.Text;
+            Properties.Settings.Default["server"] = textBoxServer.Text;
             Properties.Settings.Default["room"] = textBoxRoom.Text;
             Properties.Settings.Default["user"] = textBoxUser.Text;
             Properties.Settings.Default["password"] = textBoxPassword.Text;
