@@ -85,7 +85,7 @@ namespace Twitchmote
             client.ChannelMessageRecieved += (s, e) =>
             {
                 WriteConsole( e.PrivateMessage.User.Nick + ":" + e.PrivateMessage.Message);
-                ParseInput(e.PrivateMessage.User.Nick + ":" + e.PrivateMessage.Message);
+                ParseInput(e.PrivateMessage.Message);
             };
             client.ConnectionComplete += (s, e) =>
             {
@@ -149,16 +149,15 @@ namespace Twitchmote
             WriteConsole("Keybinds loaded.");
         }
 
-        private void AddCommandToList(string txt)
+        private void AddCommandToList(string command)
         {
             if (this.consoleTB.InvokeRequired)
             {
                 ParseInputCallback d = new ParseInputCallback(AddCommandToList);
-                this.Invoke(d, new object[] { txt });
+                this.Invoke(d, new object[] { command });
             }
             else
             {
-                string command = txt.Split(':')[1];
                 VirtualKeyCode keyCode = new VirtualKeyCode();
                 foreach (KeyboardSetting keyboardSetting in keyboardSettings)
                 {
@@ -171,7 +170,7 @@ namespace Twitchmote
 
                 if (keyCode != new VirtualKeyCode())
                 {
-                    formCommands.AddCommandToList(txt);
+                    formCommands.AddCommandToList(command);
                     inputSimulator.Keyboard.KeyDown(keyCode);
                     System.Threading.Thread.Sleep(wait);
                     inputSimulator.Keyboard.KeyUp(keyCode);
