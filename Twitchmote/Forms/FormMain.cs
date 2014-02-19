@@ -79,7 +79,8 @@ namespace Twitchmote
 
         private void StartIrc()
         {
-            client = new IrcClient(Properties.Settings.Default.server, new IrcUser(Properties.Settings.Default.user, Properties.Settings.Default.password));
+            var user = new IrcUser(Properties.Settings.Default.user, Properties.Settings.Default.user, Properties.Settings.Default.password);
+            client = new IrcClient(Properties.Settings.Default.server, user);
             client.NetworkError += (s, e) => WriteConsole("Error: " + e.SocketError);
             
             client.ChannelMessageRecieved += (s, e) =>
