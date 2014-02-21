@@ -44,16 +44,18 @@ namespace Twitchmote.Classes
 
         public KeyboardSetting() { }
 
-        public KeyboardSetting(string command, VirtualKeyCode key)
+        public KeyboardSetting(string command, VirtualKeyCode key, VirtualKeyCode modifier)
         {
             this.Command = command;
             this.Key = key;
+            this.Modifier = modifier;
         }
 
-        public KeyboardSetting(string command, string displayKey)
+        public KeyboardSetting(string command, string displayKey, string displayModifier)
         {
             this.Command = command;
             this.DisplayKey = displayKey;
+            this.DisplayModifier = displayModifier;
         }
 
         public static VirtualKeyCode ParseKey(string key)

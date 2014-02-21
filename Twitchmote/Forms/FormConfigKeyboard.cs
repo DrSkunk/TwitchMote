@@ -29,8 +29,8 @@ namespace Twitchmote
             keyboardSettings = new BindingList<KeyboardSetting>();
             foreach (string key in ConfigurationManager.AppSettings)
             {
-                string value = ConfigurationManager.AppSettings[key];
-                keyboardSettings.Add(new KeyboardSetting(key, value));
+                string[] value = ConfigurationManager.AppSettings[key].Split(';');
+                keyboardSettings.Add(new KeyboardSetting(key, value[0], value[1]));
             }
 
             BindingSource source = new BindingSource(keyboardSettings, null);
@@ -52,7 +52,9 @@ namespace Twitchmote
                 else if (keyboardSetting.DisplayKey == "0")
                     MessageBox.Show("Key cannot be 0.", "Save error");
                 else
-                    config.AppSettings.Settings.Add(keyboardSetting.Command, keyboardSetting.DisplayKey);
+                {
+                    config.AppSettings.Settings.Add(keyboardSetting.Command, keyboardSetting.DisplayKey + ";" + keyboardSetting.DisplayModifier);
+                }
             }
 
             config.Save(ConfigurationSaveMode.Modified);
