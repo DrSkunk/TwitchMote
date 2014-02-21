@@ -31,8 +31,6 @@ The following keys are available. If more are needed you can submit a ticket.
  * VK_X
  * VK_Y
  * VK_Z
-
-
  * RETURN
  * BACK
  * MENU (Alt)
@@ -45,8 +43,6 @@ The following keys are available. If more are needed you can submit a ticket.
  * CONTROL
  * LCONTROL
  * RCONTROL
-
-
  * NUMPAD0
  * NUMPAD1
  * NUMPAD2
@@ -57,8 +53,6 @@ The following keys are available. If more are needed you can submit a ticket.
  * NUMPAD7
  * NUMPAD8
  * NUMPAD9
-
-
  * VK_0
  * VK_1
  * VK_2
@@ -69,14 +63,10 @@ The following keys are available. If more are needed you can submit a ticket.
  * VK_7
  * VK_8
  * VK_9
-
-
  * LEFT
  * RIGHT
  * UP
  * DOWN
-
-
  * F1
  * F2
  * F3
