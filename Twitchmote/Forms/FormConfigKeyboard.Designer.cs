@@ -34,9 +34,10 @@
             this.menuStripKeyboard = new System.Windows.Forms.MenuStrip();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.keyboardSettingBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.commandDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.keyboardSettingBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.DisplayModifier = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewKeyboard)).BeginInit();
             this.menuStripKeyboard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.keyboardSettingBindingSource)).BeginInit();
@@ -49,13 +50,14 @@
             this.dataGridViewKeyboard.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewKeyboard.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.commandDataGridViewTextBoxColumn,
-            this.dataGridViewTextBoxColumn1});
+            this.dataGridViewTextBoxColumn1,
+            this.DisplayModifier});
             this.dataGridViewKeyboard.DataSource = this.keyboardSettingBindingSource;
             this.dataGridViewKeyboard.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewKeyboard.Location = new System.Drawing.Point(0, 24);
             this.dataGridViewKeyboard.MultiSelect = false;
             this.dataGridViewKeyboard.Name = "dataGridViewKeyboard";
-            this.dataGridViewKeyboard.Size = new System.Drawing.Size(284, 237);
+            this.dataGridViewKeyboard.Size = new System.Drawing.Size(309, 237);
             this.dataGridViewKeyboard.TabIndex = 1;
             // 
             // menuStripKeyboard
@@ -65,7 +67,7 @@
             this.closeToolStripMenuItem});
             this.menuStripKeyboard.Location = new System.Drawing.Point(0, 0);
             this.menuStripKeyboard.Name = "menuStripKeyboard";
-            this.menuStripKeyboard.Size = new System.Drawing.Size(284, 24);
+            this.menuStripKeyboard.Size = new System.Drawing.Size(309, 24);
             this.menuStripKeyboard.TabIndex = 2;
             this.menuStripKeyboard.Text = "menuStripKeyboard";
             // 
@@ -83,6 +85,10 @@
             this.closeToolStripMenuItem.Text = "&Close";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             // 
+            // keyboardSettingBindingSource
+            // 
+            this.keyboardSettingBindingSource.DataSource = typeof(Twitchmote.Classes.KeyboardSetting);
+            // 
             // commandDataGridViewTextBoxColumn
             // 
             this.commandDataGridViewTextBoxColumn.DataPropertyName = "Command";
@@ -94,19 +100,22 @@
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "DisplayKey";
-            this.dataGridViewTextBoxColumn1.HeaderText = "DisplayKey";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Key";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Width = 84;
+            this.dataGridViewTextBoxColumn1.Width = 50;
             // 
-            // keyboardSettingBindingSource
+            // DisplayModifier
             // 
-            this.keyboardSettingBindingSource.DataSource = typeof(Twitchmote.Classes.KeyboardSetting);
+            this.DisplayModifier.DataPropertyName = "DisplayModifier";
+            this.DisplayModifier.HeaderText = "Modifier";
+            this.DisplayModifier.Name = "DisplayModifier";
+            this.DisplayModifier.Width = 69;
             // 
             // FormConfigKeyboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(309, 261);
             this.Controls.Add(this.dataGridViewKeyboard);
             this.Controls.Add(this.menuStripKeyboard);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
@@ -133,6 +142,7 @@
         private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn commandDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DisplayModifier;
 
     }
 }

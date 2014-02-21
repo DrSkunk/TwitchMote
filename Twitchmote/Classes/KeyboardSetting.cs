@@ -9,20 +9,36 @@ namespace Twitchmote.Classes
 {
     class KeyboardSetting
     {
-        public string Command { get ; set; }
+        public string Command { get; set; }
         public VirtualKeyCode Key { get; set; }
+        public VirtualKeyCode Modifier { get; set; }
         public string DisplayKey
         {
             get
             {
-                if(Key == new VirtualKeyCode())
+                if (Key == new VirtualKeyCode())
                     return Key.ToString();
                 else
-                    return Key.ToString()[3].ToString();
+                    return Key.ToString();
             }
             set
             {
                 Key = ParseKey(value);
+            }
+        }
+
+        public string DisplayModifier
+        {
+            get
+            {
+                if (Modifier == new VirtualKeyCode())
+                    return Modifier.ToString();
+                else
+                    return Modifier.ToString();
+            }
+            set
+            {
+                Modifier = ParseKey(value);
             }
         }
 
@@ -42,9 +58,13 @@ namespace Twitchmote.Classes
 
         public static VirtualKeyCode ParseKey(string key)
         {
+            if(key == null)
+                return new VirtualKeyCode();
             switch (key.ToLower())
             {
                 default:
+                    return new VirtualKeyCode();
+                case "":
                     return new VirtualKeyCode();
                 case "return":
                     return VirtualKeyCode.RETURN;
