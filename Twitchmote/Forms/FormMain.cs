@@ -171,11 +171,13 @@ namespace Twitchmote
                 WriteConsole(txt);
                 string command = txt.Split(':')[1];
                 VirtualKeyCode keyCode = new VirtualKeyCode();
+                VirtualKeyCode modifierKeyCode = new VirtualKeyCode();
                 foreach (KeyboardSetting keyboardSetting in keyboardSettings)
                 {
                     if (command.ToLower() == keyboardSetting.Command.ToLower())
                     {
                         keyCode = keyboardSetting.Key;
+                        modifierKeyCode = keyboardSetting.Modifier;
                         break;
                     }
                 }
@@ -183,9 +185,16 @@ namespace Twitchmote
                 if (keyCode != new VirtualKeyCode())
                 {
                     formCommands.AddCommandToList(txt);
+
+                    if(modifierKeyCode != new VirtualKeyCode())
+                        inputSimulator.Keyboard.KeyDown(modifierKeyCode);
+
                     inputSimulator.Keyboard.KeyDown(keyCode);
                     System.Threading.Thread.Sleep(wait);
                     inputSimulator.Keyboard.KeyUp(keyCode);
+
+                    if (modifierKeyCode != new VirtualKeyCode())
+                        inputSimulator.Keyboard.KeyUp(modifierKeyCode);
                 }
             }
         }
