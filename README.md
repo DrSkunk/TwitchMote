@@ -8,6 +8,8 @@ It uses the following assets and libraries:
 * [ChatSharp IRC library](https://github.com/SirCmpwn/ChatSharp "irc")
 * [Windows input simulator](http://inputsimulator.codeplex.com/ "inputsimulator")
 
+[Download the compiled binary here.](https://github.com/whitebird/TwitchMote/releases "compiled binary")
+
 How does it work?
 --------
 The program connects to an irc server and channel and reads every message said in that channel. If the message corresponds with one of the settings, it emulates a keypress.
