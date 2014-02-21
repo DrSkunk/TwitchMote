@@ -17,6 +17,8 @@ The program is divided in three forms; Main form, keyboard configuration form an
 ### Main form
 This is the form that opens when you launch the program. It allows you to set the  game name, irc parameters as well as the optional Nickserv password.
 
+You should note that on writing this page the twitch irc servers aren't stable enough.
+
 From here you can start the irc client and open the keyboard settings.
 
 ![Main form](http://i.imgur.com/iYq5f65.png "Main form")
