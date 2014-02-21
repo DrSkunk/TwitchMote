@@ -22,9 +22,11 @@ From here you can start the irc client and open the keyboard settings.
 ![Main form](http://i.imgur.com/iYq5f65.png "Main form")
 
 ### Keyboard configuration
-Here you set the irc command to the corresponding emulated key. In this example: when you give the command "up" it emulates the button "I".
+Here you set the irc command to the corresponding emulated key. In this example: when you give the command "up" it emulates the button "I". The "MENU" modifier is a fancy word for "ALT".
 
-![Keyboard configuration form](http://i.imgur.com/0wtpxHI.png "Keyboard configuration form")
+[A complete list of all keys can be found here](KEYS.md "keys")
+
+![Keyboard configuration form](http://i.imgur.com/9TRKYfH.png "Keyboard configuration form")
 
 
 ### Commands
