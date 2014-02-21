@@ -54,7 +54,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ChatSharp">
-      <HintPath>C:\Users\white\Documents\GitHub\ChatSharp\ChatSharp\bin\Debug\ChatSharp.dll</HintPath>
+      <HintPath>..\..\TwitchMote assets\ChatSharp\ChatSharp\bin\Debug\ChatSharp.dll</HintPath>
     </Reference>
     <Reference Include="Sharkbite.Thresher">
       <HintPath>..\..\TwitchMote assets\thresher\bin\Sharkbite.Thresher.dll</HintPath>

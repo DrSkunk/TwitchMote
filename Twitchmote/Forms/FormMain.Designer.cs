@@ -47,6 +47,8 @@
             this.labelServer = new System.Windows.Forms.Label();
             this.numericUpDownKeyWait = new System.Windows.Forms.NumericUpDown();
             this.labelKeyWait = new System.Windows.Forms.Label();
+            this.textBoxNickserv = new System.Windows.Forms.TextBox();
+            this.labelNickserv = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownKeyWait)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,7 +68,7 @@
             this.consoleTB.Multiline = true;
             this.consoleTB.Name = "consoleTB";
             this.consoleTB.ReadOnly = true;
-            this.consoleTB.Size = new System.Drawing.Size(305, 147);
+            this.consoleTB.Size = new System.Drawing.Size(305, 176);
             this.consoleTB.TabIndex = 1;
             // 
             // textBoxGame
@@ -104,7 +106,7 @@
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(177, 159);
+            this.buttonSave.Location = new System.Drawing.Point(177, 188);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(75, 23);
             this.buttonSave.TabIndex = 6;
@@ -167,7 +169,7 @@
             // 
             // buttonConfigKeyboard
             // 
-            this.buttonConfigKeyboard.Location = new System.Drawing.Point(31, 159);
+            this.buttonConfigKeyboard.Location = new System.Drawing.Point(31, 188);
             this.buttonConfigKeyboard.Name = "buttonConfigKeyboard";
             this.buttonConfigKeyboard.Size = new System.Drawing.Size(121, 23);
             this.buttonConfigKeyboard.TabIndex = 13;
@@ -193,7 +195,7 @@
             // 
             // numericUpDownKeyWait
             // 
-            this.numericUpDownKeyWait.Location = new System.Drawing.Point(90, 133);
+            this.numericUpDownKeyWait.Location = new System.Drawing.Point(90, 162);
             this.numericUpDownKeyWait.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -211,17 +213,36 @@
             // labelKeyWait
             // 
             this.labelKeyWait.AutoSize = true;
-            this.labelKeyWait.Location = new System.Drawing.Point(12, 135);
+            this.labelKeyWait.Location = new System.Drawing.Point(12, 164);
             this.labelKeyWait.Name = "labelKeyWait";
             this.labelKeyWait.Size = new System.Drawing.Size(72, 13);
             this.labelKeyWait.TabIndex = 17;
             this.labelKeyWait.Text = "Key wait (ms):";
             // 
+            // textBoxNickserv
+            // 
+            this.textBoxNickserv.Location = new System.Drawing.Point(90, 133);
+            this.textBoxNickserv.Name = "textBoxNickserv";
+            this.textBoxNickserv.PasswordChar = '*';
+            this.textBoxNickserv.Size = new System.Drawing.Size(162, 20);
+            this.textBoxNickserv.TabIndex = 19;
+            // 
+            // labelNickserv
+            // 
+            this.labelNickserv.AutoSize = true;
+            this.labelNickserv.Location = new System.Drawing.Point(32, 136);
+            this.labelNickserv.Name = "labelNickserv";
+            this.labelNickserv.Size = new System.Drawing.Size(52, 13);
+            this.labelNickserv.TabIndex = 18;
+            this.labelNickserv.Text = "Nickserv:";
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(577, 197);
+            this.ClientSize = new System.Drawing.Size(577, 222);
+            this.Controls.Add(this.textBoxNickserv);
+            this.Controls.Add(this.labelNickserv);
             this.Controls.Add(this.labelKeyWait);
             this.Controls.Add(this.numericUpDownKeyWait);
             this.Controls.Add(this.textBoxServer);
@@ -272,6 +293,8 @@
         private System.Windows.Forms.Label labelServer;
         private System.Windows.Forms.NumericUpDown numericUpDownKeyWait;
         private System.Windows.Forms.Label labelKeyWait;
+        private System.Windows.Forms.TextBox textBoxNickserv;
+        private System.Windows.Forms.Label labelNickserv;
     }
 }
 

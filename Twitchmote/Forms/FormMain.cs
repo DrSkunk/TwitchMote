@@ -46,12 +46,14 @@ namespace Twitchmote
             string room = Properties.Settings.Default.room;
             string user = Properties.Settings.Default.user;
             string password = Properties.Settings.Default.password;
+            string nickserv = Properties.Settings.Default.nickserv;
             wait = Properties.Settings.Default.keyWait;
             textBoxGame.Text = game;
             textBoxServer.Text = server;
             textBoxRoom.Text = room;
             textBoxUser.Text = user;
             textBoxPassword.Text = password;
+            textBoxNickserv.Text = nickserv;
             numericUpDownKeyWait.Value = wait;
 
             interceptKeys = new InterceptKeys(this);
@@ -79,16 +81,21 @@ namespace Twitchmote
 
         private void StartIrc()
         {
-            client = new IrcClient(Properties.Settings.Default.server, new IrcUser(Properties.Settings.Default.user, Properties.Settings.Default.password));
+            var user = new IrcUser("");
+            if(Properties.Settings.Default.nickserv == string.Empty)
+                user = new IrcUser("twitchplaysagame", "twitchplaysagame");
+            else
+                user = new IrcUser(Properties.Settings.Default.user, Properties.Settings.Default.user);
+            client = new IrcClient(Properties.Settings.Default.server, user);
             client.NetworkError += (s, e) => WriteConsole("Error: " + e.SocketError);
             
             client.ChannelMessageRecieved += (s, e) =>
             {
-                WriteConsole( e.PrivateMessage.User.Nick + ":" + e.PrivateMessage.Message);
-                ParseInput(e.PrivateMessage.Message);
+                ParseInput(e.PrivateMessage.User.Nick + ":" + e.PrivateMessage.Message);
             };
             client.ConnectionComplete += (s, e) =>
             {
+                client.SendRawMessage("PRIVMSG {0} :{1}", "nickserv", "identify " + Properties.Settings.Default.nickserv);
                 client.Channels.Join(Properties.Settings.Default.room);
                 WriteConsole("Connected");
             };
@@ -149,15 +156,17 @@ namespace Twitchmote
             WriteConsole("Keybinds loaded.");
         }
 
-        private void AddCommandToList(string command)
+        private void AddCommandToList(string txt)
         {
             if (this.consoleTB.InvokeRequired)
             {
                 ParseInputCallback d = new ParseInputCallback(AddCommandToList);
-                this.Invoke(d, new object[] { command });
+                this.Invoke(d, new object[] { txt });
             }
             else
             {
+                WriteConsole(txt);
+                string command = txt.Split(':')[1];
                 VirtualKeyCode keyCode = new VirtualKeyCode();
                 foreach (KeyboardSetting keyboardSetting in keyboardSettings)
                 {
@@ -170,7 +179,7 @@ namespace Twitchmote
 
                 if (keyCode != new VirtualKeyCode())
                 {
-                    formCommands.AddCommandToList(command);
+                    formCommands.AddCommandToList(txt);
                     inputSimulator.Keyboard.KeyDown(keyCode);
                     System.Threading.Thread.Sleep(wait);
                     inputSimulator.Keyboard.KeyUp(keyCode);
@@ -220,6 +229,7 @@ namespace Twitchmote
             Properties.Settings.Default.user = textBoxUser.Text;
             Properties.Settings.Default.password = textBoxPassword.Text;
             Properties.Settings.Default.keyWait= Convert.ToInt32(numericUpDownKeyWait.Value);
+            Properties.Settings.Default.nickserv = textBoxNickserv.Text;
             Properties.Settings.Default.Save();
             this.WriteConsole("Settings saved.");
         }
