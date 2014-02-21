@@ -148,6 +148,7 @@ namespace Twitchmote
 
         public void ReloadKeybinds()
         {
+            keyboardSettings.Clear();
             foreach (string key in ConfigurationManager.AppSettings)
             {
                 string[] value = ConfigurationManager.AppSettings[key].Split(';');

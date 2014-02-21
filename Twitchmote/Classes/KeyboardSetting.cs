@@ -62,187 +62,159 @@ namespace Twitchmote.Classes
         {
             if(key == null)
                 return new VirtualKeyCode();
-            switch (key.ToLower())
+            switch (key.ToUpper())
             {
                 default:
                     return new VirtualKeyCode();
                 case "":
                     return new VirtualKeyCode();
-                case "return":
+                case "RETURN":
                     return VirtualKeyCode.RETURN;
-                case "enter":
-                    return VirtualKeyCode.RETURN;
-                case "backspace":
+                case "BACK":
                     return VirtualKeyCode.BACK;
-                case "space":
+                case "MENU":
+                    return VirtualKeyCode.MENU;
+                case "SPACE":
                     return VirtualKeyCode.SPACE;
-                case "numpad0":
+                case "NUMPAD0":
                     return VirtualKeyCode.NUMPAD0;
-                case "numpad1":
+                case "NUMPAD1":
                     return VirtualKeyCode.NUMPAD1;
-                case "numpad2":
+                case "NUMPAD2":
                     return VirtualKeyCode.NUMPAD2;
-                case "numpad3":
+                case "NUMPAD3":
                     return VirtualKeyCode.NUMPAD3;
-                case "numpad4":
+                case "NUMPAD4":
                     return VirtualKeyCode.NUMPAD4;
-                case "numpad5":
+                case "NUMPAD5":
                     return VirtualKeyCode.NUMPAD5;
-                case "numpad6":
+                case "NUMPAD6":
                     return VirtualKeyCode.NUMPAD6;
-                case "numpad7":
+                case "NUMPAD7":
                     return VirtualKeyCode.NUMPAD7;
-                case "numpad8":
+                case "NUMPAD8":
                     return VirtualKeyCode.NUMPAD8;
-                case "numpad9":
+                case "NUMPAD9":
                     return VirtualKeyCode.NUMPAD9;
-                case "num0":
-                    return VirtualKeyCode.NUMPAD0;
-                case "num1":
-                    return VirtualKeyCode.NUMPAD1;
-                case "num2":
-                    return VirtualKeyCode.NUMPAD2;
-                case "num3":
-                    return VirtualKeyCode.NUMPAD3;
-                case "num4":
-                    return VirtualKeyCode.NUMPAD4;
-                case "num5":
-                    return VirtualKeyCode.NUMPAD5;
-                case "num6":
-                    return VirtualKeyCode.NUMPAD6;
-                case "num7":
-                    return VirtualKeyCode.NUMPAD7;
-                case "num8":
-                    return VirtualKeyCode.NUMPAD8;
-                case "num9":
-                    return VirtualKeyCode.NUMPAD9;
-                case "0":
+                case "VK_0":
                     return VirtualKeyCode.VK_0;
-                case "1":
+                case "VK_1":
                     return VirtualKeyCode.VK_1;
-                case "2":
+                case "VK_2":
                     return VirtualKeyCode.VK_2;
-                case "3":
+                case "VK_3":
                     return VirtualKeyCode.VK_3;
-                case "4":
+                case "VK_4":
                     return VirtualKeyCode.VK_4;
-                case "5":
+                case "VK_5":
                     return VirtualKeyCode.VK_5;
-                case "6":
+                case "VK_6":
                     return VirtualKeyCode.VK_6;
-                case "7":
+                case "VK_7":
                     return VirtualKeyCode.VK_7;
-                case "8":
+                case "VK_8":
                     return VirtualKeyCode.VK_8;
-                case "9":
+                case "VK_9":
                     return VirtualKeyCode.VK_9;
-                case "tab":
+                case "TAB":
                     return VirtualKeyCode.TAB;
-                case "left":
+                case "LEFT":
                     return VirtualKeyCode.LEFT;
-                case "right":
+                case "RIGHT":
                     return VirtualKeyCode.RIGHT;
-                case "up":
+                case "UP":
                     return VirtualKeyCode.UP;
-                case "down":
+                case "DOWN":
                     return VirtualKeyCode.DOWN;
-                case "esc":
+                case "ESCAPE":
                     return VirtualKeyCode.ESCAPE;
-                case "escape":
-                    return VirtualKeyCode.ESCAPE;
-                case "shift":
+                case "SHIFT":
                     return VirtualKeyCode.SHIFT;
-                case "lshift":
+                case "LSHIFT":
                     return VirtualKeyCode.LSHIFT;
-                case "rshift":
+                case "RSHIFT":
                     return VirtualKeyCode.RSHIFT;
-                case "ctrl":
+                case "CONTROL":
                     return VirtualKeyCode.CONTROL;
-                case "lctrl":
+                case "LCONTROL":
                     return VirtualKeyCode.LCONTROL;
-                case "rctrl":
+                case "RCONTROL":
                     return VirtualKeyCode.RCONTROL;
-                case "control":
-                    return VirtualKeyCode.CONTROL;
-                case "lcontrol":
-                    return VirtualKeyCode.LCONTROL;
-                case "rcontrol":
-                    return VirtualKeyCode.RCONTROL;
-                case "f1":
+                case "F1":
                     return VirtualKeyCode.F1;
-                case "f2":
+                case "F2":
                     return VirtualKeyCode.F2;
-                case "f3":
+                case "F3":
                     return VirtualKeyCode.F3;
-                case "f4":
+                case "F4":
                     return VirtualKeyCode.F4;
-                case "f5":
+                case "F5":
                     return VirtualKeyCode.F5;
-                case "f6":
+                case "F6":
                     return VirtualKeyCode.F6;
-                case "f7":
+                case "F7":
                     return VirtualKeyCode.F7;
-                case "f8":
+                case "F8":
                     return VirtualKeyCode.F8;
-                case "f9":
+                case "F9":
                     return VirtualKeyCode.F9;
-                case "f10":
+                case "F10":
                     return VirtualKeyCode.F10;
-                case "f11":
+                case "F11":
                     return VirtualKeyCode.F11;
-                case "f12":
+                case "F12":
                     return VirtualKeyCode.F12;
-                case "a":
+                case "VK_A":
                     return VirtualKeyCode.VK_A;
-                case "b":
+                case "VK_B":
                     return VirtualKeyCode.VK_B;
-                case "c":
+                case "VK_C":
                     return VirtualKeyCode.VK_C;
-                case "d":
+                case "VK_D":
                     return VirtualKeyCode.VK_D;
-                case "e":
+                case "VK_E":
                     return VirtualKeyCode.VK_E;
-                case "f":
+                case "VK_F":
                     return VirtualKeyCode.VK_F;
-                case "g":
+                case "VK_G":
                     return VirtualKeyCode.VK_G;
-                case "h":
+                case "VK_H":
                     return VirtualKeyCode.VK_H;
-                case "i":
+                case "VK_I":
                     return VirtualKeyCode.VK_I;
-                case "j":
+                case "VK_J":
                     return VirtualKeyCode.VK_J;
-                case "k":
+                case "VK_K":
                     return VirtualKeyCode.VK_K;
-                case "l":
+                case "VK_L":
                     return VirtualKeyCode.VK_L;
-                case "m":
+                case "VK_M":
                     return VirtualKeyCode.VK_M;
-                case "n":
+                case "VK_N":
                     return VirtualKeyCode.VK_N;
-                case "o":
+                case "VK_O":
                     return VirtualKeyCode.VK_O;
-                case "p":
+                case "VK_P":
                     return VirtualKeyCode.VK_P;
-                case "q":
+                case "VK_Q":
                     return VirtualKeyCode.VK_Q;
-                case "r":
+                case "VK_R":
                     return VirtualKeyCode.VK_R;
-                case "s":
+                case "VK_S":
                     return VirtualKeyCode.VK_S;
-                case "t":
+                case "VK_T":
                     return VirtualKeyCode.VK_T;
-                case "u":
+                case "VK_U":
                     return VirtualKeyCode.VK_U;
-                case "v":
+                case "VK_V":
                     return VirtualKeyCode.VK_V;
-                case "w":
+                case "VK_W":
                     return VirtualKeyCode.VK_W;
-                case "x":
+                case "VK_X":
                     return VirtualKeyCode.VK_X;
-                case "y":
+                case "VK_Y":
                     return VirtualKeyCode.VK_Y;
-                case "z":
+                case "VK_Z":
                     return VirtualKeyCode.VK_Z;
             }
         }

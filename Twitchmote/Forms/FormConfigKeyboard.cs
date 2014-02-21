@@ -56,7 +56,10 @@ namespace Twitchmote
                     MessageBox.Show("Key cannot be 0.", "Save error");
                 else
                 {
-                    config.AppSettings.Settings.Add(keyboardSetting.Command, keyboardSetting.DisplayKey + ";" + keyboardSetting.DisplayModifier);
+                    string saveModifier = string.Empty;
+                    if (keyboardSetting.DisplayModifier != "0")
+                        saveModifier = ";" + keyboardSetting.DisplayModifier;
+                    config.AppSettings.Settings.Add(keyboardSetting.Command, keyboardSetting.DisplayKey + saveModifier);
                 }
             }
 
