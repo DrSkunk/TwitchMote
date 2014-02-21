@@ -260,5 +260,22 @@ namespace Twitchmote
             ReloadKeybinds();
         }
 
+        private void buttonSubmit_Click(object sender, EventArgs e)
+        {
+            submitCommand();
+        }
+
+        private void textBoxCommand_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Return && textBoxCommand.Text != string.Empty)
+                submitCommand();
+        }
+
+        private void submitCommand()
+        {
+            AddCommandToList(textBoxUser.Text + ":" + textBoxCommand.Text);
+            textBoxCommand.Text = string.Empty;
+        }
+
     }
 }

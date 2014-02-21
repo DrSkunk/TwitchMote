@@ -49,6 +49,8 @@
             this.labelKeyWait = new System.Windows.Forms.Label();
             this.textBoxNickserv = new System.Windows.Forms.TextBox();
             this.labelNickserv = new System.Windows.Forms.Label();
+            this.textBoxCommand = new System.Windows.Forms.TextBox();
+            this.buttonSubmit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownKeyWait)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,7 +70,7 @@
             this.consoleTB.Multiline = true;
             this.consoleTB.Name = "consoleTB";
             this.consoleTB.ReadOnly = true;
-            this.consoleTB.Size = new System.Drawing.Size(305, 176);
+            this.consoleTB.Size = new System.Drawing.Size(305, 150);
             this.consoleTB.TabIndex = 1;
             // 
             // textBoxGame
@@ -106,7 +108,7 @@
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(177, 188);
+            this.buttonSave.Location = new System.Drawing.Point(177, 191);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(75, 23);
             this.buttonSave.TabIndex = 6;
@@ -169,7 +171,7 @@
             // 
             // buttonConfigKeyboard
             // 
-            this.buttonConfigKeyboard.Location = new System.Drawing.Point(31, 188);
+            this.buttonConfigKeyboard.Location = new System.Drawing.Point(35, 191);
             this.buttonConfigKeyboard.Name = "buttonConfigKeyboard";
             this.buttonConfigKeyboard.Size = new System.Drawing.Size(121, 23);
             this.buttonConfigKeyboard.TabIndex = 13;
@@ -236,11 +238,31 @@
             this.labelNickserv.TabIndex = 18;
             this.labelNickserv.Text = "Nickserv:";
             // 
+            // textBoxCommand
+            // 
+            this.textBoxCommand.Location = new System.Drawing.Point(258, 191);
+            this.textBoxCommand.Name = "textBoxCommand";
+            this.textBoxCommand.Size = new System.Drawing.Size(226, 20);
+            this.textBoxCommand.TabIndex = 20;
+            this.textBoxCommand.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxCommand_KeyDown);
+            // 
+            // buttonSubmit
+            // 
+            this.buttonSubmit.Location = new System.Drawing.Point(490, 191);
+            this.buttonSubmit.Name = "buttonSubmit";
+            this.buttonSubmit.Size = new System.Drawing.Size(75, 23);
+            this.buttonSubmit.TabIndex = 21;
+            this.buttonSubmit.Text = "Submit";
+            this.buttonSubmit.UseVisualStyleBackColor = true;
+            this.buttonSubmit.Click += new System.EventHandler(this.buttonSubmit_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(577, 222);
+            this.Controls.Add(this.buttonSubmit);
+            this.Controls.Add(this.textBoxCommand);
             this.Controls.Add(this.textBoxNickserv);
             this.Controls.Add(this.labelNickserv);
             this.Controls.Add(this.labelKeyWait);
@@ -295,6 +317,8 @@
         private System.Windows.Forms.Label labelKeyWait;
         private System.Windows.Forms.TextBox textBoxNickserv;
         private System.Windows.Forms.Label labelNickserv;
+        private System.Windows.Forms.TextBox textBoxCommand;
+        private System.Windows.Forms.Button buttonSubmit;
     }
 }
 
