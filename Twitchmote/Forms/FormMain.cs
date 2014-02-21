@@ -82,13 +82,13 @@ namespace Twitchmote
         private void StartIrc()
         {
             var user = new IrcUser("");
-            if(Properties.Settings.Default.nickserv == string.Empty)
+            if (Properties.Settings.Default.nickserv == string.Empty)
                 user = new IrcUser("twitchplaysagame", "twitchplaysagame");
             else
                 user = new IrcUser(Properties.Settings.Default.user, Properties.Settings.Default.user);
             client = new IrcClient(Properties.Settings.Default.server, user);
             client.NetworkError += (s, e) => WriteConsole("Error: " + e.SocketError);
-            
+
             client.ChannelMessageRecieved += (s, e) =>
             {
                 ParseInput(e.PrivateMessage.User.Nick + ":" + e.PrivateMessage.Message);
@@ -150,8 +150,11 @@ namespace Twitchmote
         {
             foreach (string key in ConfigurationManager.AppSettings)
             {
-                string value = ConfigurationManager.AppSettings[key];
-                keyboardSettings.Add(new KeyboardSetting(key, value));
+                string[] value = ConfigurationManager.AppSettings[key].Split(';');
+                string modifier = string.Empty;
+                if (value.Length == 2)
+                    modifier = value[1];
+                keyboardSettings.Add(new KeyboardSetting(key, value[0], modifier));
             }
             WriteConsole("Keybinds loaded.");
         }
@@ -228,7 +231,7 @@ namespace Twitchmote
             Properties.Settings.Default.room = textBoxRoom.Text;
             Properties.Settings.Default.user = textBoxUser.Text;
             Properties.Settings.Default.password = textBoxPassword.Text;
-            Properties.Settings.Default.keyWait= Convert.ToInt32(numericUpDownKeyWait.Value);
+            Properties.Settings.Default.keyWait = Convert.ToInt32(numericUpDownKeyWait.Value);
             Properties.Settings.Default.nickserv = textBoxNickserv.Text;
             Properties.Settings.Default.Save();
             this.WriteConsole("Settings saved.");

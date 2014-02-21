@@ -30,7 +30,10 @@ namespace Twitchmote
             foreach (string key in ConfigurationManager.AppSettings)
             {
                 string[] value = ConfigurationManager.AppSettings[key].Split(';');
-                keyboardSettings.Add(new KeyboardSetting(key, value[0], value[1]));
+                string modifier = string.Empty;
+                if (value.Length == 2)
+                    modifier = value[1];
+                keyboardSettings.Add(new KeyboardSetting(key, value[0], modifier));
             }
 
             BindingSource source = new BindingSource(keyboardSettings, null);
