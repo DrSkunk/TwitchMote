@@ -106,5 +106,17 @@ namespace Twitchmote.Properties {
                 this["keyWait"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string nickserv {
+            get {
+                return ((string)(this["nickserv"]));
+            }
+            set {
+                this["nickserv"] = value;
+            }
+        }
     }
 }
